@@ -1,0 +1,44 @@
+<div class="bg-black-bg text-white-100 font-body">
+
+  <section class="relative">
+
+    <app-header [pages]="pages" [activePage]="'projects'"></app-header>
+
+    <div class="" *ngIf="blogPost$ | async as blogPost">
+      <div class="bg-black-bg text-white-100 font-body">
+        <section class="relative py-20">
+          <div class="container px-4 mx-auto mb-16">
+            <div class="max-w-xl lg:max-w-2xl mx-auto text-center">
+              <div class="flex mb-2 items-center justify-center">
+                <a class="text-xs font-bold">{{ blogPost?.fields?.updatedDate }}
+                </a>
+              </div>
+              <h2
+                class="mb-6 text-3xl leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight font-bold font-heading">{{ blogPost.fields.title }}</h2>
+              <div class="flex mb-2 items-center justify-center">
+                <a class="text-xs">{{ blogPost.fields.author }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="h-96 mb-12 lg:mb-16">
+            <img [src]="blogPost.fields.featuredImage.fields.file.url" class="w-full h-full object-cover hover:scale-101 ease-in-out duration-500" alt="">
+          </div>
+          <div class="container px-4 mx-auto ">
+            <div class="max-w-2xl mx-auto hover:scale-101 ease-in-out duration-500" ng-bind-html="blogPost.fields.content.en-US | markdown">
+              <p class="mb-6 lg:mb-8 text-lg leading-loose lg:text-xl lg:leading-relaxed">
+                <markdown ngPreserveWhitespaces>
+                    {{ blogPost.fields.summary }}
+                </markdown>
+              </p>
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+    </div>
+
+  </section>
+</div>
+
+<app-footer></app-footer>

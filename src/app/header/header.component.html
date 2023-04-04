@@ -1,0 +1,23 @@
+<nav class="relative px-6 py-6 z-20" >
+
+  <div class="container mx-auto px-4 relative">
+  <div class="flex items-center justify-center w-full">
+
+    <a href="#" class="inline-block text-3xl font-bold mr-24 ">
+      go<span class="text-blue-300">.</span>arch
+    </a>
+    <ul class="hidden lg:flex lg:w-auto lg:space-x-12 mr-auto ">
+      <li *ngFor="let page of pages" class="" [class.active]="page.link === activePage">
+        <a [routerLink]="page.link"
+           class="inline-block text-m font-medium transition-colors duration-700 hover:text-blue-300">{{ page.name }}</a>
+      </li>
+    </ul>
+    <div class="hidden lg:flex lg:w-auto lg:space-x-12 ">
+      <a class="inline-block text-m font-bold transition-colors duration-700 hover:text-blue-300"
+         href="tel:421951587076">+421-951-587-076</a>
+    </div>
+
+  </div>
+  </div>
+</nav>
+
